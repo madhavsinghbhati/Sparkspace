@@ -11,30 +11,50 @@
 *{box-sizing:border-box;font-family:'Poppins',sans-serif}
 body{
 margin:0;
-background:linear-gradient(135deg,#eef2ff,#f8fafc);
-color:#0f172a;
+background:linear-gradient(135deg,#0f172a,#1e293b,#020617);
+color:#e5e7eb;
 }
 
+/* HERO */
 header{
-padding:70px 20px;
+padding:90px 20px;
 text-align:center;
+background:radial-gradient(circle at top,#1d4ed8,#020617);
 }
 header h1{
-font-size:2.6rem;
+font-size:2.8rem;
 margin-bottom:10px;
 }
 header p{
-color:#475569;
-max-width:600px;
+max-width:700px;
 margin:auto;
+color:#c7d2fe;
+font-size:1.05rem;
+}
+header button{
+margin-top:25px;
+padding:12px 28px;
+border:none;
+border-radius:30px;
+background:#4f46e5;
+color:white;
+font-size:1rem;
+cursor:pointer;
 }
 
+/* SECTIONS */
 .section{
-padding:50px 20px;
-max-width:1100px;
+padding:60px 20px;
+max-width:1200px;
 margin:auto;
 }
 
+.section h2{
+text-align:center;
+margin-bottom:30px;
+}
+
+/* CARDS */
 .cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -42,15 +62,21 @@ gap:25px;
 }
 
 .card{
-background:#fff;
+background:#020617;
 border-radius:18px;
 padding:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+box-shadow:0 15px 40px rgba(0,0,0,.4);
 text-align:center;
-transition:.3s;
+transition:.4s;
+opacity:0;
+transform:translateY(40px);
+}
+.card.show{
+opacity:1;
+transform:translateY(0);
 }
 .card:hover{
-transform:translateY(-6px);
+transform:translateY(-8px);
 }
 
 .card img{
@@ -65,9 +91,17 @@ margin-bottom:12px;
 margin:10px 0 6px;
 }
 .card p{
-color:#475569;
+color:#94a3b8;
 font-size:0.95rem;
 }
+
+.specs{
+text-align:left;
+font-size:0.9rem;
+margin-top:10px;
+color:#cbd5f5;
+}
+.specs li{margin-bottom:6px}
 
 .card button{
 margin-top:14px;
@@ -79,59 +113,50 @@ color:#fff;
 font-size:0.95rem;
 cursor:pointer;
 }
-.card button.secondary{
-background:#e0e7ff;
-color:#1e3a8a;
+
+/* TRUST */
+.trust{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
+}
+.trust div{
+background:#020617;
+padding:25px;
+border-radius:16px;
+text-align:center;
 }
 
+/* FORM */
 .form-box{
 max-width:420px;
-margin:50px auto 0;
-background:#fff;
+margin:40px auto 0;
+background:#020617;
 padding:25px;
 border-radius:18px;
-box-shadow:0 12px 35px rgba(0,0,0,.1);
+box-shadow:0 15px 40px rgba(0,0,0,.4);
+display:none;
 }
-
-.form-box h2{
-text-align:center;
-margin-bottom:15px;
-}
-
 .form-box input,
-.form-box select,
 .form-box textarea{
 width:100%;
 padding:10px;
 margin:8px 0;
 border-radius:10px;
-border:1px solid #cbd5e1;
-}
-
-.form-box button{
-width:100%;
-padding:12px;
-margin-top:10px;
 border:none;
-border-radius:20px;
-background:#4f46e5;
-color:#fff;
-font-size:1rem;
-cursor:pointer;
 }
 
+/* FOOTER */
 footer{
 margin-top:60px;
-padding:30px 20px;
-background:#0f172a;
-color:#e5e7eb;
+padding:35px 20px;
+background:#020617;
 text-align:center;
 }
 footer a{
 color:#a5b4fc;
 text-decoration:none;
 }
-
 </style>
 </head>
 
@@ -139,61 +164,98 @@ text-decoration:none;
 
 <header>
   <h1>SparkSpace</h1>
-  <p>A student makerspace for electronics, robotics and project mentorship.</p>
+  <p>Build. Learn. Create.  
+  A student makerspace for electronics, robotics and real-world project mentorship.</p>
+  <button onclick="scrollToBookings()">Book Your Slot</button>
 </header>
 
-<section class="section">
+<section class="section" id="bookings">
+  <h2>Booking Options</h2>
+
   <div class="cards">
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e">
       <h3>Normal Booking</h3>
-      <p>Basic components and workspace access.</p>
+      <p>For beginners & basic experiments</p>
+      <ul class="specs">
+        <li>• 10–15 electronic components</li>
+        <li>• Breadboard & wires</li>
+        <li>• Basic sensors</li>
+        <li>• Workspace access</li>
+      </ul>
       <button onclick="openForm('Normal Booking')">Book Online</button>
-      <button class="secondary" onclick="comingSoon()">Walk In</button>
     </div>
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
       <h3>Moderate Booking</h3>
-      <p>More components for intermediate projects.</p>
+      <p>For intermediate project work</p>
+      <ul class="specs">
+        <li>• 20–30 components</li>
+        <li>• Arduino / basic controllers</li>
+        <li>• Multiple sensors</li>
+        <li>• Debug support</li>
+      </ul>
       <button onclick="openForm('Moderate Booking')">Book Online</button>
-      <button class="secondary" onclick="comingSoon()">Walk In</button>
     </div>
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786">
       <h3>Pro Booking</h3>
-      <p>Advanced components + full support.</p>
+      <p>Advanced & competition-level projects</p>
+      <ul class="specs">
+        <li>• Unlimited components</li>
+        <li>• Advanced modules</li>
+        <li>• Power tools access</li>
+        <li>• Full technical support</li>
+      </ul>
       <button onclick="openForm('Pro Booking')">Book Online</button>
-      <button class="secondary" onclick="comingSoon()">Walk In</button>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
       <h3>Mentor Add-On</h3>
-      <p>One-to-one mentorship for your project.</p>
+      <p>One-to-one guidance from experienced mentors</p>
+      <ul class="specs">
+        <li>• Project planning</li>
+        <li>• Circuit design help</li>
+        <li>• Debugging support</li>
+        <li>• Presentation guidance</li>
+      </ul>
       <button onclick="openForm('Mentor Add-On')">Book Mentor</button>
-      <button class="secondary" onclick="comingSoon()">Request at Center</button>
     </div>
 
   </div>
 </section>
 
 <section class="section">
-  <div class="form-box" id="bookingForm" style="display:none">
-    <h2>Book Appointment</h2>
+  <h2>Why SparkSpace?</h2>
+  <div class="trust">
+    <div>Hands-on learning environment</div>
+    <div>Student-friendly pricing</div>
+    <div>Real project experience</div>
+    <div>Guidance beyond textbooks</div>
+  </div>
+</section>
 
-    <!-- 🔴 FORM ACTION – replace ONLY if your Formspree ID is different -->
+<section class="section">
+  <h2>Location</h2>
+  <p style="text-align:center;color:#cbd5f5">
+    📍 Physical lab access is <strong>Coming Soon</strong>.  
+    Online bookings are open.
+  </p>
+</section>
+
+<section class="section">
+  <div class="form-box" id="bookingForm">
+    <h2>Book Appointment</h2>
     <form action="https://formspree.io/f/xykjlbga" method="POST">
       <input type="hidden" name="booking_type" id="bookingType">
-
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <input type="tel" name="phone" placeholder="Phone Number">
-
-      <textarea name="message" rows="4" placeholder="Your project details"></textarea>
-
+      <textarea name="message" rows="4" placeholder="Project details"></textarea>
       <button type="submit">Submit Booking</button>
     </form>
   </div>
@@ -201,23 +263,27 @@ text-decoration:none;
 
 <footer id="contact">
   <p>Contact us at</p>
-  <p>
-    <a href="mailto:ntvsparkspace@gmail.com">
-      ntvsparkspace@gmail.com
-    </a>
-  </p>
+  <p><a href="mailto:ntvsparkspace@gmail.com">ntvsparkspace@gmail.com</a></p>
   <p>© 2026 SparkSpace</p>
 </footer>
 
 <script>
 function openForm(type){
   document.getElementById("bookingForm").style.display="block";
-  document.getElementById("bookingType").value = type;
-  window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
+  document.getElementById("bookingType").value=type;
+  document.getElementById("bookingForm").scrollIntoView({behavior:'smooth'});
 }
-function comingSoon(){
-  alert("📍 We are coming soon!");
+function scrollToBookings(){
+  document.getElementById("bookings").scrollIntoView({behavior:'smooth'});
 }
+const cards=document.querySelectorAll('.card');
+window.addEventListener('scroll',()=>{
+  cards.forEach(c=>{
+    if(c.getBoundingClientRect().top<window.innerHeight-50){
+      c.classList.add('show');
+    }
+  });
+});
 </script>
 
 </body>
