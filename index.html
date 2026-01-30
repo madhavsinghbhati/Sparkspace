@@ -5,295 +5,218 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SparkSpace</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --blue:#4f46e5;
-  --bg1:#eef2ff;
-  --bg2:#ffffff;
-  --card:#ffffff;
-  --text:#0f172a;
-  --muted:#64748b;
-}
-
-*{box-sizing:border-box}
+*{box-sizing:border-box;font-family:'Poppins',sans-serif}
 body{
-  margin:0;
-  font-family:Inter,system-ui;
-  background:
-    radial-gradient(900px 500px at top,#e0e7ff,var(--bg2)),
-    linear-gradient(var(--bg1),var(--bg2));
-  color:var(--text);
+margin:0;
+background:linear-gradient(135deg,#eef2ff,#f8fafc);
+color:#0f172a;
 }
 
-/* NAV */
-nav{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(255,255,255,.9);
-  backdrop-filter:blur(12px);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 26px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
+header{
+padding:70px 20px;
+text-align:center;
 }
-nav h1{margin:0;color:var(--blue)}
-nav a{
-  text-decoration:none;
-  padding:12px 20px;
-  border-radius:999px;
-  font-weight:600;
+header h1{
+font-size:2.6rem;
+margin-bottom:10px;
 }
-.book-nav{background:var(--blue);color:#fff}
-.visit-nav{border:1.5px solid #c7d2fe;color:var(--blue)}
+header p{
+color:#475569;
+max-width:600px;
+margin:auto;
+}
 
-/* HERO */
-.hero{
-  padding:90px 20px;
-  text-align:center;
+.section{
+padding:50px 20px;
+max-width:1100px;
+margin:auto;
 }
-.hero h2{font-size:46px;font-weight:800}
-.hero p{color:var(--muted);max-width:700px;margin:auto}
 
-/* SECTION */
-section{max-width:1200px;margin:auto;padding:80px 20px}
-h3{text-align:center;font-size:36px;margin-bottom:40px}
-
-/* CARDS */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
 }
+
 .card{
-  background:var(--card);
-  border-radius:26px;
-  overflow:hidden;
-  box-shadow:0 30px 80px rgba(79,70,229,.18);
-  transition:.3s;
+background:#fff;
+border-radius:18px;
+padding:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+text-align:center;
+transition:.3s;
 }
-.card:hover{transform:translateY(-8px)}
+.card:hover{
+transform:translateY(-6px);
+}
+
 .card img{
-  width:100%;
-  height:210px;
-  object-fit:cover;
-}
-.card .content{padding:26px}
-.card h4{margin:0;color:var(--blue)}
-.card p{color:var(--muted);font-size:14px}
-.card ul{padding-left:18px}
-.card li{margin-bottom:8px}
-.buttons{
-  display:flex;
-  gap:12px;
-  margin-top:18px;
-}
-button{
-  flex:1;
-  padding:14px;
-  border:none;
-  border-radius:14px;
-  font-weight:600;
-  cursor:pointer;
-}
-.book-btn{background:var(--blue);color:#fff}
-.walk-btn{background:#eef2ff;color:var(--blue)}
-
-/* BOOKING MODAL */
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.45);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:200;
-}
-.modal-box{
-  background:#fff;
-  width:90%;
-  max-width:480px;
-  padding:32px;
-  border-radius:26px;
-}
-.modal-box h3{margin-top:0;color:var(--blue)}
-.modal-box input,
-.modal-box textarea{
-  width:100%;
-  padding:14px;
-  margin-bottom:14px;
-  border-radius:14px;
-  border:1px solid #c7d2fe;
-}
-.modal-box button{
-  width:100%;
-  background:var(--blue);
-  color:#fff;
-}
-.close{
-  text-align:right;
-  font-size:14px;
-  cursor:pointer;
-  color:var(--muted);
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:14px;
+margin-bottom:12px;
 }
 
-/* FOOTER */
+.card h3{
+margin:10px 0 6px;
+}
+.card p{
+color:#475569;
+font-size:0.95rem;
+}
+
+.card button{
+margin-top:14px;
+padding:10px 18px;
+border:none;
+border-radius:20px;
+background:#4f46e5;
+color:#fff;
+font-size:0.95rem;
+cursor:pointer;
+}
+.card button.secondary{
+background:#e0e7ff;
+color:#1e3a8a;
+}
+
+.form-box{
+max-width:420px;
+margin:50px auto 0;
+background:#fff;
+padding:25px;
+border-radius:18px;
+box-shadow:0 12px 35px rgba(0,0,0,.1);
+}
+
+.form-box h2{
+text-align:center;
+margin-bottom:15px;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea{
+width:100%;
+padding:10px;
+margin:8px 0;
+border-radius:10px;
+border:1px solid #cbd5e1;
+}
+
+.form-box button{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:20px;
+background:#4f46e5;
+color:#fff;
+font-size:1rem;
+cursor:pointer;
+}
+
 footer{
-  text-align:center;
-  padding:40px;
-  color:var(--muted);
+margin-top:60px;
+padding:30px 20px;
+background:#0f172a;
+color:#e5e7eb;
+text-align:center;
+}
+footer a{
+color:#a5b4fc;
+text-decoration:none;
 }
 
-/* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  right:22px;
-  bottom:22px;
-  width:64px;
-  height:64px;
-  border-radius:50%;
-  background:#25D366;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:30px;
-  color:#fff;
-  text-decoration:none;
-  box-shadow:0 20px 50px rgba(0,0,0,.35);
-}
 </style>
 </head>
 
 <body>
 
-<nav>
+<header>
   <h1>SparkSpace</h1>
-  <div>
-    <a class="book-nav" href="#booking" onclick="openForm('')">Book Now</a>
-    <a class="visit-nav" href="#" onclick="comingSoon()">Visit Us</a>
+  <p>A student makerspace for electronics, robotics and project mentorship.</p>
+</header>
+
+<section class="section">
+  <div class="cards">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e">
+      <h3>Normal Booking</h3>
+      <p>Basic components and workspace access.</p>
+      <button onclick="openForm('Normal Booking')">Book Online</button>
+      <button class="secondary" onclick="comingSoon()">Walk In</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+      <h3>Moderate Booking</h3>
+      <p>More components for intermediate projects.</p>
+      <button onclick="openForm('Moderate Booking')">Book Online</button>
+      <button class="secondary" onclick="comingSoon()">Walk In</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786">
+      <h3>Pro Booking</h3>
+      <p>Advanced components + full support.</p>
+      <button onclick="openForm('Pro Booking')">Book Online</button>
+      <button class="secondary" onclick="comingSoon()">Walk In</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
+      <h3>Mentor Add-On</h3>
+      <p>One-to-one mentorship for your project.</p>
+      <button onclick="openForm('Mentor Add-On')">Book Mentor</button>
+      <button class="secondary" onclick="comingSoon()">Request at Center</button>
+    </div>
+
   </div>
-</nav>
-
-<div class="hero">
-  <h2>Build Your Project.<br>Book Online or Walk In.</h2>
-  <p>Electronics, robotics & innovation — built by students, for students.</p>
-</div>
-
-<section>
-<h3>Choose Your Booking Type</h3>
-
-<div class="grid">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?q=80&w=1200">
-<div class="content">
-<h4>Basic Components Booking</h4>
-<p>10–15 basic components</p>
-<ul>
-<li>Workspace</li>
-<li>Basic tools</li>
-<li>Limited components</li>
-</ul>
-<div class="buttons">
-<button class="book-btn" onclick="openForm('Basic Components')">Book Online</button>
-<button class="walk-btn" onclick="comingSoon()">Walk In</button>
-</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200">
-<div class="content">
-<h4>Moderate Components Booking</h4>
-<p>Medium-level projects</p>
-<ul>
-<li>Workspace</li>
-<li>Tools</li>
-<li>Moderate components</li>
-<li>Testing support</li>
-</ul>
-<div class="buttons">
-<button class="book-btn" onclick="openForm('Moderate Components')">Book Online</button>
-<button class="walk-btn" onclick="comingSoon()">Walk In</button>
-</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200">
-<div class="content">
-<h4>Pro Booking (With Mentor)</h4>
-<p>Full project guidance</p>
-<ul>
-<li>All tools</li>
-<li>Advanced components</li>
-<li><b>Personal mentor</b></li>
-</ul>
-<div class="buttons">
-<button class="book-btn" onclick="openForm('Pro Booking')">Book Online</button>
-<button class="walk-btn" onclick="comingSoon()">Walk In</button>
-</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1581091870627-3c67fae63d87?q=80&w=1200">
-<div class="content">
-<h4>Mentor Add-On Booking</h4>
-<p>Extra mentor support</p>
-<ul>
-<li>1-to-1 session</li>
-<li>Debugging</li>
-<li>Design guidance</li>
-</ul>
-<div class="buttons">
-<button class="book-btn" onclick="openForm('Mentor Add-On')">Book Mentor</button>
-<button class="walk-btn" onclick="comingSoon()">Request at Center</button>
-</div>
-</div>
-</div>
-
-</div>
 </section>
 
-<footer>
-📧 madhav.singh.bhati04@gmail.com<br>
-© 2026 SparkSpace
-</footer>
+<section class="section">
+  <div class="form-box" id="bookingForm" style="display:none">
+    <h2>Book Appointment</h2>
 
-<!-- BOOKING MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-box">
-    <div class="close" onclick="closeForm()">✕ Close</div>
-    <h3>Booking Request</h3>
+    <!-- 🔴 FORM ACTION – replace ONLY if your Formspree ID is different -->
+    <form action="https://formspree.io/f/xykjlbga" method="POST">
+      <input type="hidden" name="booking_type" id="bookingType">
 
-    <form action="https://formspree.io/f/xwkdjzqd" method="POST">
-      <input type="hidden" name="Booking Type" id="bookingType">
-      <input type="text" name="Name" placeholder="Your Name" required>
-      <input type="email" name="Email" placeholder="Your Email" required>
-      <textarea name="Project Details" placeholder="Tell us about your project"></textarea>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="tel" name="phone" placeholder="Phone Number">
+
+      <textarea name="message" rows="4" placeholder="Your project details"></textarea>
+
       <button type="submit">Submit Booking</button>
     </form>
   </div>
-</div>
+</section>
 
-<a class="whatsapp"
-href="https://wa.me/918005682230?text=Hi%20I%20want%20to%20book%20SparkSpace"
-target="_blank">💬</a>
+<footer id="contact">
+  <p>Contact us at</p>
+  <p>
+    <a href="mailto:ntvsparkspace@gmail.com">
+      ntvsparkspace@gmail.com
+    </a>
+  </p>
+  <p>© 2026 SparkSpace</p>
+</footer>
 
 <script>
 function openForm(type){
+  document.getElementById("bookingForm").style.display="block";
   document.getElementById("bookingType").value = type;
-  document.getElementById("modal").style.display="flex";
-}
-function closeForm(){
-  document.getElementById("modal").style.display="none";
+  window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
 }
 function comingSoon(){
-  alert("📍 We are coming soon. Please book online for now.");
+  alert("📍 We are coming soon!");
 }
 </script>
 
